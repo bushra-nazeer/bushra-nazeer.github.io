@@ -69,7 +69,7 @@
     position: sticky; top: 0; z-index: 20;
     background: color-mix(in srgb, var(--paper) 88%, transparent);
     backdrop-filter: saturate(140%) blur(8px);
-    border-bottom: 1px solid var(--hairline);
+   
   }
   .nav {
     display: flex; align-items: center; justify-content: space-between;
@@ -98,16 +98,6 @@
 
   /* ---------- hero ---------- */
   .hero { position: relative; padding-block: clamp(3rem, 9vw, 6.5rem) clamp(2.5rem, 6vw, 4rem); overflow: hidden; }
-  .hero-grid {
-    position: absolute; inset: 0; z-index: 0; pointer-events: none;
-    background-image:
-      linear-gradient(var(--hairline) 1px, transparent 1px),
-      linear-gradient(90deg, var(--hairline) 1px, transparent 1px);
-    background-size: 44px 44px;
-    -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,0.5), transparent 70%);
-            mask-image: linear-gradient(180deg, rgba(0,0,0,0.5), transparent 70%);
-    opacity: 0.5;
-  }
   .hero-inner { position: relative; z-index: 1; max-width: 46rem; }
   .hero h1 {
     font-size: clamp(2.6rem, 7.5vw, 4.75rem);
@@ -135,11 +125,9 @@
   .btn-ghost { border-color: var(--hairline-strong); color: var(--ink); background: var(--surface); }
   .btn-ghost:hover { border-color: var(--accent); color: var(--accent-text); text-decoration: none; transform: translateY(-1px); }
 
-  .sparkline { margin-top: 2.6rem; width: 100%; max-width: 30rem; height: 48px; display: block; color: var(--accent); opacity: 0.7; }
-  .sparkline path.signal { stroke-dasharray: 1; }
 
   /* ---------- section scaffolding ---------- */
-  section { padding-block: clamp(2.75rem, 7vw, 5rem); border-top: 1px solid var(--hairline); }
+  section { padding-block: clamp(2.75rem, 7vw, 5rem); }
   .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.9rem; }
   .section-head h2 { font-size: clamp(1.55rem, 3.4vw, 2.1rem); letter-spacing: -0.02em; margin: 0.35rem 0 0; font-weight: 750; text-wrap: balance; }
   .section-note { font-family: var(--font-mono); font-size: 0.8rem; color: var(--muted); }
@@ -184,7 +172,7 @@
   .timeline { display: flex; flex-direction: column; gap: 0; }
   .role {
     display: grid; grid-template-columns: 14rem 1fr; gap: clamp(1rem, 3vw, 2.5rem);
-    padding-block: 1.6rem; border-top: 1px solid var(--hairline);
+    padding-block: 1.6rem;
   }
   .role:first-child { border-top: 0; }
   .role .when { font-family: var(--font-mono); font-size: 0.8rem; color: var(--muted); }
@@ -231,7 +219,6 @@
 
 <main>
   <section class="hero" aria-labelledby="hero-title">
-    <div class="hero-grid" aria-hidden="true"></div>
     <div class="wrap hero-inner">
       <p class="eyebrow">Berkeley, CA · 6+ years · Healthcare · FinTech · SaaS</p>
       <h1 id="hero-title">Bushra Nazeer</h1>
@@ -249,11 +236,6 @@
         <a class="btn btn-ghost" href="https://github.com/bushra-nazeer" target="_blank" rel="noopener">GitHub ↗</a>
         <a class="btn btn-ghost" href="mailto:bushnaze@gmail.com">Email</a>
       </div>
-
-      <svg class="sparkline" viewBox="0 0 480 48" fill="none" aria-hidden="true" preserveAspectRatio="none">
-        <path class="signal" d="M0 30 L60 30 L78 30 L92 12 L104 44 L118 22 L132 30 L210 30 L228 30 L242 8 L256 40 L270 30 L360 30 L380 30 L396 18 L410 38 L424 30 L480 30"
-          stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" />
-      </svg>
     </div>
   </section>
 
@@ -481,6 +463,7 @@
         <p>Open to Data Scientist, ML Engineer, and Data Engineer roles. The fastest way to reach me is email — or browse the code on GitHub.</p>
         <div class="contact-row">
           <a class="btn btn-primary" href="mailto:bushnaze@gmail.com">bushnaze@gmail.com</a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/bushra-nazeer-1534b3387" target="_blank" rel="noopener">LinkedIn ↗</a>
           <a class="btn btn-ghost" href="https://github.com/bushra-nazeer" target="_blank" rel="noopener">GitHub ↗</a>
         </div>
       </div>
