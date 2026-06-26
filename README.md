@@ -6,7 +6,7 @@ It's a single self-contained `index.html`, no build step, no dependencies, no tr
 
 ## What's inside
 
-A short tour of who I am and what I build, with cards linking to my six project repositories across data science, machine learning, and data engineering.
+A short tour of who I am and what I build, with cards linking to my six project repositories across the machine-learning and data engineering stack.
 
 ## Running it
 
