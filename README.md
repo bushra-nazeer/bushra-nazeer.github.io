@@ -1,8 +1,8 @@
-# Portfolio — Bushra Nazeer
+# Portfolio, Bushra Nazeer
 
 Source for my portfolio, live at **https://bushra-nazeer.github.io**.
 
-It's a single self-contained `index.html` — no build step, no dependencies, no tracking. It loads instantly, works on mobile, and respects keyboard navigation and reduced-motion preferences.
+It's a single self-contained `index.html`, no build step, no dependencies, no tracking. It loads instantly, works on mobile, and respects keyboard navigation and reduced-motion preferences.
 
 ## What's inside
 
