@@ -1,0 +1,536 @@
+<!--
+  ┌─────────────────────────────────────────────────────────────────────┐
+  │  BEFORE YOU PUBLISH — three quick edits:                              │
+  │  1. Replace every  bushra-nazeer  with your real GitHub handle.        │
+  │  2. Flip each project's data-status ("building" → "live") as repos    │
+  │     go public, and confirm the repo links resolve.                    │
+  │  3. (Optional) add a custom domain in GitHub Pages settings.          │
+  │                                                                       │
+  │  DEPLOY (GitHub Pages):                                               │
+  │    - Create a public repo (e.g. "portfolio" or "bushra-nazeer.github.io")
+  │    - Put this index.html in the repo root, push.                      │
+  │    - Settings → Pages → Source: "Deploy from branch" → main / root.   │
+  │    - Live at https://bushra-nazeer.github.io/portfolio (or root).      │
+  └─────────────────────────────────────────────────────────────────────┘
+-->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Bushra Nazeer — Data Scientist · AI/ML · Data Engineer</title>
+<meta name="description" content="Bushra Nazeer — Data Scientist, AI/ML Engineer, and Data Engineer with 6+ years building production ML systems and data platforms across healthcare, fintech, and SaaS." />
+
+<style>
+  :root {
+    --paper: #F4F6F4;
+    --surface: #FFFFFF;
+    --ink: #15191C;
+    --muted: #5A646B;
+    --hairline: #DBE0DD;
+    --hairline-strong: #C7CFCB;
+    --accent: #0E7C66;
+    --accent-text: #0B5F54;
+    --accent-wash: #E6F0EC;
+    --role-ds: #0E7C66;
+    --role-ai: #C9761B;
+    --role-de: #46688E;
+
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+
+    --maxw: 1080px;
+    --gap: clamp(1rem, 3vw, 2rem);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  a { color: var(--accent-text); text-decoration: none; }
+  a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  .wrap { width: min(100% - 2.5rem, var(--maxw)); margin-inline: auto; }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* ---------- header ---------- */
+  .site-header {
+    position: sticky; top: 0; z-index: 20;
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter: saturate(140%) blur(8px);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .nav {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem; padding-block: 0.85rem;
+  }
+  .brand {
+    font-family: var(--font-mono);
+    font-weight: 600; font-size: 0.95rem; color: var(--ink);
+    letter-spacing: -0.01em; white-space: nowrap;
+  }
+  .brand .dot { color: var(--accent); }
+  .nav-links { display: flex; align-items: center; gap: clamp(0.75rem, 2vw, 1.6rem); }
+  .nav-links a {
+    font-family: var(--font-mono); font-size: 0.82rem; color: var(--muted);
+    letter-spacing: 0.02em;
+  }
+  .nav-links a:hover { color: var(--ink); text-decoration: none; }
+  .nav-cta {
+    font-family: var(--font-mono); font-size: 0.82rem;
+    border: 1px solid var(--accent); color: var(--accent-text);
+    padding: 0.4rem 0.8rem; border-radius: 999px; transition: background 0.15s ease;
+  }
+  .nav-cta:hover { background: var(--accent-wash); text-decoration: none; }
+  .nav-links .hide-sm { }
+  @media (max-width: 620px) { .hide-sm { display: none; } }
+
+  /* ---------- hero ---------- */
+  .hero { position: relative; padding-block: clamp(3rem, 9vw, 6.5rem) clamp(2.5rem, 6vw, 4rem); overflow: hidden; }
+  .hero-grid {
+    position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    background-image:
+      linear-gradient(var(--hairline) 1px, transparent 1px),
+      linear-gradient(90deg, var(--hairline) 1px, transparent 1px);
+    background-size: 44px 44px;
+    -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,0.5), transparent 70%);
+            mask-image: linear-gradient(180deg, rgba(0,0,0,0.5), transparent 70%);
+    opacity: 0.5;
+  }
+  .hero-inner { position: relative; z-index: 1; max-width: 46rem; }
+  .hero h1 {
+    font-size: clamp(2.6rem, 7.5vw, 4.75rem);
+    line-height: 1.01; letter-spacing: -0.025em; font-weight: 800;
+    margin: 0.9rem 0 0; text-wrap: balance;
+  }
+  .legend { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; margin: 1.4rem 0 0; padding: 0; list-style: none; }
+  .legend li { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-mono); font-size: 0.84rem; color: var(--ink); }
+  .swatch { width: 11px; height: 11px; border-radius: 50%; flex: none; }
+  .s-ds { background: var(--role-ds); }
+  .s-ai { background: var(--role-ai); }
+  .s-de { background: var(--role-de); }
+  .lede {
+    font-size: clamp(1.05rem, 2.2vw, 1.3rem); color: #2c3338;
+    max-width: 38ch; margin: 1.5rem 0 0; line-height: 1.5;
+  }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.9rem; }
+  .btn {
+    font-family: var(--font-mono); font-size: 0.88rem; letter-spacing: 0.01em;
+    padding: 0.7rem 1.15rem; border-radius: 8px; border: 1px solid transparent;
+    display: inline-flex; align-items: center; gap: 0.5rem; transition: transform 0.12s ease, background 0.15s ease, border-color 0.15s ease;
+  }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover { background: #0c6b58; text-decoration: none; transform: translateY(-1px); }
+  .btn-ghost { border-color: var(--hairline-strong); color: var(--ink); background: var(--surface); }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent-text); text-decoration: none; transform: translateY(-1px); }
+
+  .sparkline { margin-top: 2.6rem; width: 100%; max-width: 30rem; height: 48px; display: block; color: var(--accent); opacity: 0.7; }
+  .sparkline path.signal { stroke-dasharray: 1; }
+
+  /* ---------- section scaffolding ---------- */
+  section { padding-block: clamp(2.75rem, 7vw, 5rem); border-top: 1px solid var(--hairline); }
+  .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.9rem; }
+  .section-head h2 { font-size: clamp(1.55rem, 3.4vw, 2.1rem); letter-spacing: -0.02em; margin: 0.35rem 0 0; font-weight: 750; text-wrap: balance; }
+  .section-note { font-family: var(--font-mono); font-size: 0.8rem; color: var(--muted); }
+
+  /* ---------- project cards ---------- */
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: var(--gap); }
+  .card {
+    background: var(--surface); border: 1px solid var(--hairline);
+    border-radius: 12px; padding: 1.35rem 1.4rem 1.25rem;
+    display: flex; flex-direction: column; gap: 0.75rem;
+    transition: transform 0.14s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  }
+  .card:hover { transform: translateY(-3px); border-color: var(--hairline-strong); box-shadow: 0 10px 30px -18px rgba(20,30,28,0.45); }
+  .card-top { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; }
+  .roles { display: inline-flex; gap: 0.4rem; }
+  .role-tag {
+    font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.03em;
+    display: inline-flex; align-items: center; gap: 0.32rem; color: var(--muted);
+    border: 1px solid var(--hairline); border-radius: 999px; padding: 0.12rem 0.5rem;
+  }
+  .role-tag .swatch { width: 8px; height: 8px; }
+  .status {
+    font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase;
+    padding: 0.16rem 0.5rem; border-radius: 999px; white-space: nowrap;
+  }
+  .status[data-status="live"] { background: var(--accent-wash); color: var(--accent-text); }
+  .status[data-status="building"] { background: #F1EEE7; color: #8a6d2f; }
+  .card h3 { font-size: 1.16rem; margin: 0; letter-spacing: -0.01em; line-height: 1.25; }
+  .card p { margin: 0; color: #38424a; font-size: 0.97rem; line-height: 1.5; }
+  .stack { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.15rem; }
+  .chip { font-family: var(--font-mono); font-size: 0.72rem; color: var(--muted); background: var(--paper); border: 1px solid var(--hairline); border-radius: 6px; padding: 0.16rem 0.45rem; }
+  .card-links { margin-top: auto; padding-top: 0.5rem; display: flex; gap: 1rem; font-family: var(--font-mono); font-size: 0.82rem; }
+  .card-links a { display: inline-flex; align-items: center; gap: 0.3rem; }
+
+  /* ---------- capabilities ---------- */
+  .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--gap); }
+  .skill-group h3 { font-size: 0.82rem; font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-text); margin: 0 0 0.7rem; }
+  .skill-list { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .skill-list span { font-size: 0.86rem; background: var(--surface); border: 1px solid var(--hairline); border-radius: 7px; padding: 0.28rem 0.55rem; color: #2f383e; }
+
+  /* ---------- experience ---------- */
+  .timeline { display: flex; flex-direction: column; gap: 0; }
+  .role {
+    display: grid; grid-template-columns: 14rem 1fr; gap: clamp(1rem, 3vw, 2.5rem);
+    padding-block: 1.6rem; border-top: 1px solid var(--hairline);
+  }
+  .role:first-child { border-top: 0; }
+  .role .when { font-family: var(--font-mono); font-size: 0.8rem; color: var(--muted); }
+  .role .org { font-weight: 700; font-size: 1.05rem; margin: 0.15rem 0 0; }
+  .role .title { font-family: var(--font-mono); font-size: 0.82rem; color: var(--accent-text); margin-top: 0.25rem; }
+  .role ul { margin: 0.2rem 0 0; padding-left: 1.05rem; display: flex; flex-direction: column; gap: 0.4rem; }
+  .role li { color: #38424a; font-size: 0.96rem; }
+  .role li b { font-variant-numeric: tabular-nums; color: var(--ink); }
+  @media (max-width: 680px) { .role { grid-template-columns: 1fr; gap: 0.6rem; } }
+
+  /* ---------- certifications ---------- */
+  .certs { display: flex; flex-wrap: wrap; gap: 0.7rem; }
+  .cert { display: inline-flex; align-items: center; gap: 0.55rem; font-family: var(--font-mono); font-size: 0.85rem; background: var(--surface); border: 1px solid var(--hairline); border-radius: 999px; padding: 0.45rem 0.9rem; }
+  .cert .swatch { background: var(--accent); width: 9px; height: 9px; }
+
+  /* ---------- contact / footer ---------- */
+  .contact-card { background: var(--surface); border: 1px solid var(--hairline); border-radius: 14px; padding: clamp(1.6rem, 4vw, 2.6rem); }
+  .contact-card h2 { margin: 0.4rem 0 0.6rem; font-size: clamp(1.5rem, 3.4vw, 2rem); letter-spacing: -0.02em; }
+  .contact-card p { margin: 0 0 1.4rem; color: #38424a; max-width: 52ch; }
+  .contact-row { display: flex; flex-wrap: wrap; gap: 0.7rem; }
+  .site-footer { padding-block: 2.2rem 3rem; }
+  .footer-inner { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; align-items: center; justify-content: space-between; font-family: var(--font-mono); font-size: 0.78rem; color: var(--muted); }
+
+  /* ---------- reveal animation ---------- */
+  .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <span class="brand">bushra<span class="dot">.</span>nazeer</span>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#work">Work</a>
+      <a href="#skills" class="hide-sm">Skills</a>
+      <a href="#experience" class="hide-sm">Experience</a>
+      <a href="#contact">Contact</a>
+      <a class="nav-cta" href="https://github.com/bushra-nazeer" target="_blank" rel="noopener">GitHub ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="wrap hero-inner">
+      <p class="eyebrow">Berkeley, CA · 6+ years · Healthcare · FinTech · SaaS</p>
+      <h1 id="hero-title">Bushra Nazeer</h1>
+
+      <ul class="legend" aria-label="Disciplines">
+        <li><span class="swatch s-ds" aria-hidden="true"></span>Data Scientist</li>
+        <li><span class="swatch s-ai" aria-hidden="true"></span>AI/ML Engineer</li>
+        <li><span class="swatch s-de" aria-hidden="true"></span>Data Engineer</li>
+      </ul>
+
+      <p class="lede">I turn ambiguous problems into production ML systems — from 10TB+ data pipelines and risk models to LLM/RAG applications — with the MLOps to keep them running.</p>
+
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#work">View the work</a>
+        <a class="btn btn-ghost" href="https://github.com/bushra-nazeer" target="_blank" rel="noopener">GitHub ↗</a>
+        <a class="btn btn-ghost" href="mailto:bushnaze@gmail.com">Email</a>
+      </div>
+
+      <svg class="sparkline" viewBox="0 0 480 48" fill="none" aria-hidden="true" preserveAspectRatio="none">
+        <path class="signal" d="M0 30 L60 30 L78 30 L92 12 L104 44 L118 22 L132 30 L210 30 L228 30 L242 8 L256 40 L270 30 L360 30 L380 30 L396 18 L410 38 L424 30 L480 30"
+          stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" />
+      </svg>
+    </div>
+  </section>
+
+  <section id="work" aria-labelledby="work-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">01 — Featured work</p>
+          <h2 id="work-title">Projects, with the code to back them</h2>
+        </div>
+        <p class="section-note">role tags ↓ &nbsp;
+          <span class="swatch s-ds" style="display:inline-block;vertical-align:middle"></span> DS
+          <span class="swatch s-ai" style="display:inline-block;vertical-align:middle;margin-left:.6rem"></span> AI/ML
+          <span class="swatch s-de" style="display:inline-block;vertical-align:middle;margin-left:.6rem"></span> DE
+        </p>
+      </div>
+
+      <div class="cards">
+        <!-- 1 -->
+        <article class="card">
+          <div class="card-top">
+            <span class="roles">
+              <span class="role-tag"><span class="swatch s-ds"></span>DS</span>
+              <span class="role-tag"><span class="swatch s-ai"></span>AI/ML</span>
+            </span>
+            <span class="status" data-status="live">Live</span>
+          </div>
+          <h3>Healthcare Readmission Risk</h3>
+          <p>30-day readmission prediction on 100K+ encounters with SHAP explainability, probability calibration, and subgroup fairness analysis — served behind a FastAPI scoring API.</p>
+          <div class="stack"><span class="chip">XGBoost</span><span class="chip">SHAP</span><span class="chip">MLflow</span><span class="chip">FastAPI</span><span class="chip">Docker</span></div>
+          <div class="card-links">
+            <a href="https://github.com/bushra-nazeer/readmission-risk-xgboost" target="_blank" rel="noopener">Code ↗</a>
+            <a href="https://github.com/bushra-nazeer/readmission-risk-xgboost#readme" target="_blank" rel="noopener">Case study ↗</a>
+          </div>
+        </article>
+        <!-- 2 -->
+        <article class="card">
+          <div class="card-top">
+            <span class="roles">
+              <span class="role-tag"><span class="swatch s-ai"></span>AI/ML</span>
+              <span class="role-tag"><span class="swatch s-ds"></span>DS</span>
+            </span>
+            <span class="status" data-status="live">Live</span>
+          </div>
+          <h3>Clinical RAG Assistant</h3>
+          <p>Retrieval-augmented clinical Q&amp;A: BioBERT entity extraction, vector search over medical documents, grounded answers with citations and PII guardrails.</p>
+          <div class="stack"><span class="chip">LangChain</span><span class="chip">BioBERT</span><span class="chip">Vector search</span><span class="chip">FastAPI</span></div>
+          <div class="card-links">
+            <a href="https://github.com/bushra-nazeer/clinical-rag-assistant" target="_blank" rel="noopener">Code ↗</a>
+          </div>
+        </article>
+        <!-- 3 -->
+        <article class="card">
+          <div class="card-top">
+            <span class="roles"><span class="role-tag"><span class="swatch s-de"></span>DE</span></span>
+            <span class="status" data-status="live">Live</span>
+          </div>
+          <h3>Healthcare Claims Lakehouse</h3>
+          <p>FHIR / EDI 837/835 claims ingested into a Data Vault 2.0 lakehouse with dbt, a clinical knowledge graph, and vector search — orchestrated end-to-end with Airflow.</p>
+          <div class="stack"><span class="chip">PySpark</span><span class="chip">dbt</span><span class="chip">FHIR</span><span class="chip">Neo4j</span><span class="chip">Airflow</span></div>
+          <div class="card-links">
+            <a href="https://github.com/bushra-nazeer/healthcare-claims-lakehouse" target="_blank" rel="noopener">Code ↗</a>
+          </div>
+        </article>
+        <!-- 4 -->
+        <article class="card">
+          <div class="card-top">
+            <span class="roles">
+              <span class="role-tag"><span class="swatch s-de"></span>DE</span>
+              <span class="role-tag"><span class="swatch s-ds"></span>DS</span>
+            </span>
+            <span class="status" data-status="live">Live</span>
+          </div>
+          <h3>Real-Time Fraud Detection</h3>
+          <p>Streaming transaction scoring on a Kafka pipeline with gradient-boosted models, anomaly detection, and a live feature-drift monitor with alerting.</p>
+          <div class="stack"><span class="chip">Kafka</span><span class="chip">XGBoost</span><span class="chip">Evidently</span><span class="chip">Docker</span></div>
+          <div class="card-links">
+            <a href="https://github.com/bushra-nazeer/realtime-fraud-detection" target="_blank" rel="noopener">Code ↗</a>
+          </div>
+        </article>
+        <!-- 5 -->
+        <article class="card">
+          <div class="card-top">
+            <span class="roles">
+              <span class="role-tag"><span class="swatch s-ai"></span>AI/ML</span>
+              <span class="role-tag"><span class="swatch s-de"></span>DE</span>
+            </span>
+            <span class="status" data-status="live">Live</span>
+          </div>
+          <h3>MLOps Demand Forecasting</h3>
+          <p>Time-series forecasting with a full lifecycle: MLflow model registry, automated retraining via CI/CD, and drift dashboards — the production discipline, not just the model.</p>
+          <div class="stack"><span class="chip">Prophet</span><span class="chip">LightGBM</span><span class="chip">MLflow</span><span class="chip">GitHub Actions</span></div>
+          <div class="card-links">
+            <a href="https://github.com/bushra-nazeer/mlops-demand-forecasting" target="_blank" rel="noopener">Code ↗</a>
+          </div>
+        </article>
+        <!-- 6 -->
+        <article class="card">
+          <div class="card-top">
+            <span class="roles">
+              <span class="role-tag"><span class="swatch s-ds"></span>DS</span>
+              <span class="role-tag"><span class="swatch s-ai"></span>AI/ML</span>
+            </span>
+            <span class="status" data-status="live">Live</span>
+          </div>
+          <h3>Personalization Recommender</h3>
+          <p>Two-tower candidate generation plus a ranking model, with an A/B-test simulation harness to quantify lift in CTR and average order value.</p>
+          <div class="stack"><span class="chip">PyTorch</span><span class="chip">Embeddings</span><span class="chip">A/B testing</span></div>
+          <div class="card-links">
+            <a href="https://github.com/bushra-nazeer/personalization-recommender" target="_blank" rel="noopener">Code ↗</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" aria-labelledby="skills-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">02 — Capabilities</p>
+          <h2 id="skills-title">The toolkit, grouped by where it earns its keep</h2>
+        </div>
+      </div>
+      <div class="skills">
+        <div class="skill-group">
+          <h3>Languages</h3>
+          <div class="skill-list"><span>Python</span><span>SQL</span><span>PySpark</span><span>Scala</span><span>R</span><span>Bash</span></div>
+        </div>
+        <div class="skill-group">
+          <h3>ML &amp; Deep Learning</h3>
+          <div class="skill-list"><span>XGBoost</span><span>LightGBM</span><span>PyTorch</span><span>TensorFlow</span><span>scikit-learn</span><span>SHAP / LIME</span></div>
+        </div>
+        <div class="skill-group">
+          <h3>NLP &amp; LLMs</h3>
+          <div class="skill-list"><span>Transformers</span><span>BERT / BioBERT</span><span>RAG</span><span>LangChain</span><span>Embeddings</span><span>Semantic search</span></div>
+        </div>
+        <div class="skill-group">
+          <h3>Data Engineering</h3>
+          <div class="skill-list"><span>Spark</span><span>Kafka</span><span>Airflow</span><span>dbt</span><span>Snowflake</span><span>Databricks</span><span>Data Vault 2.0</span></div>
+        </div>
+        <div class="skill-group">
+          <h3>MLOps &amp; Cloud</h3>
+          <div class="skill-list"><span>MLflow</span><span>Docker</span><span>Kubernetes</span><span>CI/CD</span><span>AWS</span><span>GCP</span><span>Azure</span></div>
+        </div>
+        <div class="skill-group">
+          <h3>Healthcare Data</h3>
+          <div class="skill-list"><span>FHIR</span><span>HL7</span><span>EDI 837/835</span><span>ICD-10</span><span>HIPAA</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" aria-labelledby="exp-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">03 — Experience</p>
+          <h2 id="exp-title">Where the systems shipped</h2>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="role">
+          <div>
+            <p class="when">Jun 2024 — Present · Remote</p>
+            <p class="org">HealthStream</p>
+            <p class="title">Data Scientist / ML &amp; Data Engineer</p>
+          </div>
+          <ul>
+            <li>Patient risk-prediction models (XGBoost + SHAP) reaching <b>0.89 AUC</b>, adopted across <b>12+</b> hospital networks.</li>
+            <li>HIPAA-compliant ML pipelines over <b>10M+</b> patient records; BERT/BioBERT clinical NLP for decision support.</li>
+            <li>Healthcare data lakehouse processing <b>3B+</b> monthly claims — <b>65%</b> lower latency, <b>$420K</b> annual savings.</li>
+          </ul>
+        </div>
+        <div class="role">
+          <div>
+            <p class="when">May 2021 — May 2024 · Remote</p>
+            <p class="org">SSA Group</p>
+            <p class="title">ML Engineer / Data Engineer</p>
+          </div>
+          <ul>
+            <li>Fraud detection with XGBoost/LightGBM — <b>33%</b> higher detection rate, <b>28%</b> fewer false positives.</li>
+            <li>Real-time intelligence on Kafka + Spark; ML APIs on AWS handling <b>500K+</b> daily requests.</li>
+            <li>Migrated a <b>15TB</b> Oracle warehouse to Azure — <b>60%</b> lower cost, <b>90%</b> faster queries.</li>
+          </ul>
+        </div>
+        <div class="role">
+          <div>
+            <p class="when">Apr 2019 — Apr 2021 · Remote</p>
+            <p class="org">The Mom Project</p>
+            <p class="title">Associate Data Scientist / Data Engineer</p>
+          </div>
+          <ul>
+            <li>Recommendation systems lifting average order value <b>17%</b> and click-through <b>29%</b>.</li>
+            <li>Customer segmentation across <b>5M+</b> users; fraud models cutting incidents <b>30%+</b>.</li>
+            <li>ETL pipelines ingesting <b>10M+</b> daily events into Redshift with a zero-data-loss SLA.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="certs" aria-labelledby="certs-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">04 — Recognition</p>
+          <h2 id="certs-title">Certifications</h2>
+        </div>
+      </div>
+      <div class="certs">
+        <span class="cert"><span class="swatch"></span>AWS Machine Learning — Specialty</span>
+        <span class="cert"><span class="swatch"></span>Google Cloud ML Engineer</span>
+        <span class="cert"><span class="swatch"></span>Azure AI Engineer</span>
+        <span class="cert"><span class="swatch"></span>Databricks — Apache Spark</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" aria-labelledby="contact-title">
+    <div class="wrap">
+      <div class="contact-card reveal">
+        <p class="eyebrow">05 — Contact</p>
+        <h2 id="contact-title">Let's talk about your hardest data problem.</h2>
+        <p>Open to Data Scientist, ML Engineer, and Data Engineer roles. The fastest way to reach me is email — or browse the code on GitHub.</p>
+        <div class="contact-row">
+          <a class="btn btn-primary" href="mailto:bushnaze@gmail.com">bushnaze@gmail.com</a>
+          <a class="btn btn-ghost" href="https://github.com/bushra-nazeer" target="_blank" rel="noopener">GitHub ↗</a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/bushra-nazeer" target="_blank" rel="noopener">LinkedIn ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <span>© <span id="year">2026</span> Bushra Nazeer</span>
+    <span>Built as a static site · hosted on GitHub Pages</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const revealTargets = document.querySelectorAll("section .wrap > *, .card, .role, .skill-group");
+  revealTargets.forEach((el) => el.classList.add("reveal"));
+
+  if (prefersReduced || !("IntersectionObserver" in window)) {
+    revealTargets.forEach((el) => el.classList.add("in"));
+  } else {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+    revealTargets.forEach((el) => io.observe(el));
+  }
+</script>
+</body>
+</html>
